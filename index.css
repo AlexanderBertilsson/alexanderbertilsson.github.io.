@@ -101,10 +101,11 @@ body::before {
     bottom: -2px;
     background: linear-gradient(135deg, 
         #93c5fd 0%, 
-        #64748b 25%, 
-        #E59500 50%, 
-        #93c5fd 75%, 
-        #64748b 100%
+        #64748b 20%, 
+        #93c5fd 40%, 
+        #7dd3fc 60%, 
+        #64748b 80%, 
+        #93c5fd 100%
     );
     border-radius: 20px;
     z-index: -2;
