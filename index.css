@@ -10,6 +10,9 @@
 
 body {
     font-family: 'Orbitron', 'Cinzel', monospace;
+    /* Fallback solid background for iOS/Safari */
+    background-color: #0a0e1a;
+    /* Primary gradient background */
     background: linear-gradient(135deg, 
         #0a0e1a 0%, 
         #1a2332 12%, 
@@ -22,12 +25,16 @@ body {
         #0f1419 100%
     );
     background-size: 800% 800%;
+    background-attachment: fixed;
     animation: navyShift 25s ease-in-out infinite;
     min-height: 100vh;
     color: #c7d2fe;
     overflow-x: hidden;
     position: relative;
     line-height: 1.6;
+    /* iOS specific fixes */
+    -webkit-background-size: 800% 800%;
+    -webkit-animation: navyShift 25s ease-in-out infinite;
 }
 
 /* Animated navy blue background gradient */
