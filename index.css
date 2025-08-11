@@ -10,31 +10,41 @@
 
 body {
     font-family: 'Orbitron', 'Cinzel', monospace;
-    /* Fallback solid background for iOS/Safari */
-    background-color: #0a0e1a;
-    /* Primary gradient background */
-    background: linear-gradient(135deg, 
-        #0a0e1a 0%, 
-        #1a2332 12%, 
-        #0f1419 25%, 
-        #1e2a4a 37%, 
-        #0d1421 50%,
-        #1a1f3a 62%,
-        #0a0e1a 75%,
-        #1c2951 87%,
-        #0f1419 100%
-    );
-    background-size: 800% 800%;
-    background-attachment: fixed;
-    /* animation: navyShift 25s ease-in-out infinite; */
+    background-color: #0a0e1a; /* Fallback solid background */
     min-height: 100vh;
     color: #c7d2fe;
     overflow-x: hidden;
     position: relative;
     line-height: 1.6;
-    /* iOS specific fixes */
-    /* -webkit-background-size: 800% 800%;
-    -webkit-animation: navyShift 25s ease-in-out infinite; */
+}
+
+/* Animated background using pseudo-element for iOS compatibility */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    /* Animated navy gradient background */
+    background:
+        linear-gradient(135deg, 
+            #0a0e1a 0%, 
+            #1a2332 12%, 
+            #0f1419 25%, 
+            #1e2a4a 37%, 
+            #0d1421 50%,
+            #1a1f3a 62%,
+            #0a0e1a 75%,
+            #1c2951 87%,
+            #0f1419 100%
+        );
+    background-size: 800% 800%;
+    animation: navyShift 25s ease-in-out infinite;
+    /* iOS/WebKit prefixes */
+    -webkit-background-size: 800% 800%;
+    -webkit-animation: navyShift 25s ease-in-out infinite;
 }
 
 /* Animated navy blue background gradient */
@@ -56,20 +66,7 @@ body {
     }
 }
 
-/* Nordic runes background pattern */
-body::before {
-    content: '';
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: 
-        radial-gradient(circle at 20% 80%, rgba(229, 149, 0, 0.03) 0%, transparent 50%),
-        radial-gradient(circle at 80% 20%, rgba(147, 197, 253, 0.03) 0%, transparent 50%),
-        radial-gradient(circle at 40% 40%, rgba(100, 116, 139, 0.02) 0%, transparent 50%);
-    z-index: -1;
-}
+
 
 /* Hero Section */
 .hero {
