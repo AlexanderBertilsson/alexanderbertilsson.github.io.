@@ -408,6 +408,21 @@ body::before {
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(229, 149, 0, 0.1);
 }
 
+/* iOS-compatible active states (mirrors hover styles) */
+.feature-card.active::before {
+    opacity: 1;
+}
+
+.feature-card.active::after {
+    left: 100%;
+}
+
+.feature-card.active {
+    transform: translateY(-5px);
+    border-color: rgba(229, 149, 0, 0.4);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(229, 149, 0, 0.1);
+}
+
 /* iOS/WebKit compatible keyframes */
 @-webkit-keyframes shimmer {
     0% {

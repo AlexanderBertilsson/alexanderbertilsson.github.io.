@@ -124,5 +124,66 @@
 
 
     </div>
+
+    <!-- iOS-compatible feature card interactions -->
+    <script>
+        // Handle feature card interactions for iOS touch devices
+        document.addEventListener('DOMContentLoaded', function() {
+            const featureCards = document.querySelectorAll('.feature-card');
+            
+            featureCards.forEach(card => {
+                // Add click/tap event listener
+                card.addEventListener('click', function(event) {
+                    // Prevent default behavior if the card contains links
+                    event.preventDefault();
+                    
+                    // Remove active class from all other cards
+                    featureCards.forEach(otherCard => {
+                        if (otherCard !== this) {
+                            otherCard.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle active class on the clicked card
+                    this.classList.toggle('active');
+                });
+                
+                // Add touch event for better iOS responsiveness
+                card.addEventListener('touchstart', function() {
+                    // Add a slight delay to prevent conflicts with scrolling
+                    setTimeout(() => {
+                        if (!this.classList.contains('active')) {
+                            // Remove active from other cards
+                            featureCards.forEach(otherCard => {
+                                if (otherCard !== this) {
+                                    otherCard.classList.remove('active');
+                                }
+                            });
+                            // Add active to this card
+                            this.classList.add('active');
+                        }
+                    }, 100);
+                });
+            });
+            
+            // Optional: Remove active state when clicking outside
+            document.addEventListener('click', function(event) {
+                if (!event.target.closest('.feature-card')) {
+                    featureCards.forEach(card => {
+                        card.classList.remove('active');
+                    });
+                }
+            });
+            
+            // Optional: Remove active state when touching outside
+            document.addEventListener('touchstart', function(event) {
+                if (!event.target.closest('.feature-card')) {
+                    featureCards.forEach(card => {
+                        card.classList.remove('active');
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
