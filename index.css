@@ -141,53 +141,7 @@ body::before {
     font-weight: 400;
 }
 
-/* CTA Buttons */
-.cta-buttons {
-    display: flex;
-    gap: 1.5rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 2rem;
-}
 
-.cta-primary, .cta-secondary, .cta-final {
-    padding: 1rem 2.5rem;
-    font-family: 'Bebas Neue', sans-serif;
-    font-size: 1.1rem;
-    letter-spacing: 1px;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    font-weight: 600;
-    position: relative;
-    overflow: hidden;
-}
-
-.cta-primary, .cta-final {
-    background: linear-gradient(135deg, #E59500, #fbbf24);
-    color: #0a0e1a;
-    box-shadow: 0 4px 15px rgba(229, 149, 0, 0.3);
-}
-
-.cta-primary:hover, .cta-final:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(229, 149, 0, 0.4);
-    background: linear-gradient(135deg, #fbbf24, #E59500);
-}
-
-.cta-secondary {
-    background: transparent;
-    color: #93c5fd;
-    border: 2px solid #93c5fd;
-}
-
-.cta-secondary:hover {
-    background: rgba(147, 197, 253, 0.1);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(147, 197, 253, 0.2);
-}
 
 /* Main Content */
 .main-content {
@@ -384,7 +338,7 @@ body::before {
 /* Feature Cards */
 .section-content {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 2rem;
     margin-top: 3rem;
 }
@@ -421,6 +375,8 @@ body::before {
     border-radius: 12px;
     z-index: -1;
     animation: shimmer 3s ease-in-out infinite;
+    /* iOS/WebKit prefixes */
+    -webkit-animation: shimmer 3s ease-in-out infinite;
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -450,6 +406,19 @@ body::before {
     transform: translateY(-5px);
     border-color: rgba(229, 149, 0, 0.4);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(229, 149, 0, 0.1);
+}
+
+/* iOS/WebKit compatible keyframes */
+@-webkit-keyframes shimmer {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 
 @keyframes shimmer {
@@ -614,10 +583,7 @@ body::before {
         font-size: 2.5rem;
     }
     
-    .cta-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
+
     
     .section {
         padding: 3rem 1.5rem;
@@ -629,44 +595,16 @@ body::before {
     
     .section-content {
         padding: 0 1rem;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 }
 
-/* Additional Nordic elements */
-.container::after {
-    content: '◊ ◊ ◊';
-    position: absolute;
-    bottom: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    color: #E59500;
-    font-size: 1.2rem;
-    letter-spacing: 0.5rem;
-    opacity: 0.7;
-    animation: diamondPulse 2s ease-in-out infinite;
-}
 
-@keyframes diamondPulse {
-    0%, 100% { opacity: 0.7; }
-    50% { opacity: 1; }
-}
 
-/* Hover effects for interactivity */
-.card:hover {
-    transform: translateY(-2px);
-    box-shadow: 
-        0 12px 40px rgba(0, 0, 0, 0.4),
-        0 0 20px rgba(229, 149, 0, 0.1),
-        inset 0 1px 0 rgba(147, 197, 253, 0.2);
-    border-left-color: #93c5fd;
-    transition: all 0.3s ease;
-}
 
-.title:hover::before,
-.title:hover::after {
-    color: #93c5fd;
-    transition: color 0.3s ease;
-}
+
+
 
 /* Responsive design */
 @media (max-width: 480px) {
@@ -698,6 +636,8 @@ body::before {
     
     .section-content {
         padding: 0 0.5rem;
+        grid-template-columns: 1fr;
+        gap: 1rem;
     }
     
     .subtitle {
