@@ -25,16 +25,16 @@ body {
         #0f1419 100%
     );
     background-size: 800% 800%;
-    /* background-attachment: fixed; */
-    animation: navyShift 25s ease-in-out infinite;
+    background-attachment: fixed;
+    /* animation: navyShift 25s ease-in-out infinite; */
     min-height: 100vh;
     color: #c7d2fe;
     overflow-x: hidden;
     position: relative;
     line-height: 1.6;
     /* iOS specific fixes */
-    -webkit-background-size: 800% 800%;
-    -webkit-animation: navyShift 25s ease-in-out infinite;
+    /* -webkit-background-size: 800% 800%;
+    -webkit-animation: navyShift 25s ease-in-out infinite; */
 }
 
 /* Animated navy blue background gradient */
